@@ -63,29 +63,3 @@ p#herosection{
     display: flex;
     align-items:center;
 }
-
-.nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.navbar ul li {
-    display: inline; /* Ensure list items are inline */
-    margin: 10px;
-    font-size: large;
-    font-family: var(--font-fam-text);
-}
-
-.navbar ul{
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-color);
-}

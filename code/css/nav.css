@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.google.com/specimen/Nova+Round?query=round');
+
+:root {
+    --primary-color: #3f2933;
+    --secondary-color: #735557;
+    --hover-color: #910A67;
+    --text-color: #FFF8F8;
+    --font-fam-branding: 'Rock Salt', cursive;
+    --font-fam-text: 'Nova Round', sans-serif;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar ul li {
+    display: inline; /* Ensure list items are inline */
+    margin: 10px;
+    font-size: large;
+    font-family: var(--font-fam-text);
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+a:hover{
+    color:rgb(211, 152, 185);
+    text-decoration:underline;
+}
