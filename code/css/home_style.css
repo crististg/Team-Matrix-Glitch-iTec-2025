@@ -2,9 +2,10 @@
 @import url('https://fonts.google.com/specimen/Nova+Round?query=round');
 
 :root {
+    --special-color: #522546;
     --primary-color: #3f2933;
     --secondary-color: #735557;
-    --hover-color: #910A67;
+    --hover-color: #410445;
     --text-color: #FFF8F8;
     --font-fam-branding: 'Rock Salt', cursive;
     --font-fam-text: 'Nova Round', sans-serif;
@@ -54,13 +55,15 @@ body{
 }
 
 .navbar ul li {
-    display: inline; /* Ensure list items are inline */
-    margin: 10px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
     font-size: large;
     font-family: var(--font-fam-text);
 }
 
 .navbar ul{
+    display: flex;
     list-style: none;
     display: flex;
     margin: 0;
@@ -70,4 +73,48 @@ body{
 a {
     text-decoration: none;
     color: var(--text-color);
+}
+
+.signin{
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    width: auto;
+    margin-right: 30px;
+}
+
+.signin ul{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.signin ul li{
+    display: inline;
+    margin: 5px;
+    font-size: large;
+    font-family: var(--font-fam-text);
+}
+
+.signup{
+    background-color: var();
+}
+
+.but{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.butcolor{
+    background-color: var(--special-color);
+}
+
+.but:hover{
+    background-color: var(--hover-color);
 }
