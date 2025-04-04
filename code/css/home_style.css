@@ -10,41 +10,6 @@
     --font-fam-text: 'Nova Round', sans-serif;
 }
 
-body{
-    height:100%;
-    padding: 0;
-    margin: 0;
-    background-color: var(--primary-color);
-}
-
-.header {
-    background-color: var(--secondary-color);
-    min-width:max-content;
-    color:var(--text-color);
-    height: 90px;
-    top:0;
-    left: 0;
-    position:fixed;
-    width: 100%;
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 2fr 1fr;
-}
-
-.branding{
-    text-decoration: none;
-    color: var(--text-color);
-    max-width: fit-content;
-    font-family: var(--font-fam-branding);
-    font-size: x-large;
-    font-weight:bold;
-    letter-spacing: -1px;
-    margin-left: 30px;
-}
-
-.parent{
-    
-}
 .herosection{
     background-image:url("/public/imagini/herosection.jpg");
     width:100%;
@@ -57,9 +22,10 @@ body{
 
 p#herosection{
     position:absolute;
-    font-family: Arial;  
-    font-size:72px;
-    transform: translate(168%, 550%);
+    font-family: var(--font-fam-branding);  
+    font-size:50px;
+    transform: translate(162%, 392%);
     display: flex;
     align-items:center;
+
 }
