@@ -1,0 +1,58 @@
+/* filepath: /home/crististg/projects/Team-Matrix-Glitch-iTec-2025/code/css/signupstyle.css */
+@import url('https://fonts.google.com/specimen/Nova+Round?query=round');
+
+:root {
+    --special-color: #522546;
+    --primary-color: #3f2933;
+    --secondary-color: #735557;
+    --hover-color: #410445;
+    --text-color: #FFF8F8;
+    --font-fam-branding: 'Rock Salt', cursive;
+    --font-fam-text: 'Nova Round', sans-serif;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 180px auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h1 {
+    font-family: var(--font-fam-text);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    font-family: var(--font-fam-text);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container button:hover {
+    background-color: var(--hover-color);
+}

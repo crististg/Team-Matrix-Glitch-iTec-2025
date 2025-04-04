@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - GlitchStyle</title>
+    <link rel="stylesheet" href="../css/home_style.css">
+    <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="../css/signinstyle.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="branding">
+            <img src="" alt="">
+            <a href="/code/html/home.html">GlitchStyle</a>
+        </div>
+        <div class="nav">
+            <nav class="navbar">
+                <ul>
+                    <li class="but"><a href="home.html">Home</a></li>
+                    <li class="but"><a href="products.html">Products</a></li>
+                    <li class="but"><a href="collabs.html">Collabs</a></li>
+                    <li class="but"><a href="about.html">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="signin">
+            <ul>
+                <li>
+                    <div class="but">
+                        <a href="/code/html/signin.html">
+                            Log in
+                        </a>
+                    </div>
+                </li> 
+                <li class="signup">
+                    <div class="but butcolor">
+                        <a href="/code/html/signup.html">
+                            Sign up
+                        </a>
+                    </div>
+                </li> 
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h1>Log In</h1>
+            <form id="signin-form" action="http://localhost:3000/signin" method="POST">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 GlitchStyle. All rights reserved.</p>
+    </footer>
+</body>
+</html>
