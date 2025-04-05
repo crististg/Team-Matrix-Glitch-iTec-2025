@@ -104,8 +104,30 @@ main {
   main div img {
     width: 500px;
     position: relative;
-    transform: translate(0, -33%); /* move up by 50% of its height */
+    transform: translate(0, -33%);
     z-index: 2;
     animation: fade-in 1s ease-in 1 forwards;
   }  
   
+  .image-wrapper {
+    position: relative;
+    height: 0px; /* this can be zero or something small if you want no space taken */
+}
+
+.image-wrapper img {
+    position: absolute;
+    top: -100px; /* adjust as needed to visually place it */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    z-index: 2;
+    animation: fade-in 1s ease-in 1 forwards;
+}
+
+.content-section {
+  margin-top: 240px;
+  padding: 0 40px;
+  font-family: var(--font-fam-text);
+  text-align: center;
+  color: var(--text-color);
+}
