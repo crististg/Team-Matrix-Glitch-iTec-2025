@@ -59,27 +59,40 @@ main {
     animation: fade-in 2s ease-in 1 forwards;
   }
 
-  main div#blablabla p{
-    margin:30px;
-    transform:translate(0%, 100%);
-    opacity:0;
-    color:white;
-    text-align:center;
-    position:relative;
-    font-family:var(--font-fam-text);
-    transform:translate(0%, -40%);
-    font-size:17px;
-    animation: fade-in 0.5s ease-in 1 forwards;
-    animation-delay:2.5s;
-  }
-
   main div{
     display:flex;
     justify-content:center;
     align-items:center;
   }
 
+  main #blablabla{
+    margin:30px;
+    color:white;
+    text-align:center;
+    position:relative;
+    font-family:var(--font-fam-text);
+    transform:translate(-37%, -210%);
+    font-size:27px;
+    text-decoration:underline;
+  }
+  #bla2{
+    padding-left:40px;
+    padding-right:40px;
+    transform:translate(0%, -550%);
+    text-indent:16px;
+    font-size:18px;
+  }
+
+
   @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  @keyframes fade-in2{
     0% {
       opacity: 0;
     }
@@ -95,5 +108,4 @@ main {
     z-index: 2;
     animation: fade-in 1s ease-in 1 forwards;
   }  
-  
   
