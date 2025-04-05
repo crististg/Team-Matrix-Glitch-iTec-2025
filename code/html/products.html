@@ -29,7 +29,7 @@
                 <li>
                     <a href="/code/html/cart.html">
                         <div class="shopping-cart">
-                            <img src="/public/imagini/cart.png" alt="Shopping-Cart"/ style="height: 50px; width: 50px;">
+                            <img src="/public/imagini/cart.png" alt="Shopping-Cart"/ style="height: 40px; width: 40px;">
                         </div>
                     </a>
                     
@@ -94,11 +94,11 @@
             const productDiv = document.createElement('div');
             productDiv.classList.add('product');
             productDiv.innerHTML = `
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <p>Price: $${product.price.toFixed(2)}</p>
-            <img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto;" />
-            <a href="/code/html/product-details.html?id=${product.id}" class="details-link" style="color:black">View Details</a>
+            <a href="/code/html/product-details.html?id=${product.id}" class="details-link" style="color:black">
+                <img src="${product.image}" alt="${product.name}"/>
+                <h3>${product.name}</h3>
+                <p>Price: $${product.price.toFixed(2)}</p>
+                </a>
             `;
         productsContainer.appendChild(productDiv);
     });

@@ -58,7 +58,6 @@ main div p.homecontent{
     height: auto;
     border-radius: 10px;
     animation: rotate 20s linear infinite;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
 }
 
 .text-content {

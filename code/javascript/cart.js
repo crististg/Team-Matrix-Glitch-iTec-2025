@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartContainer = document.getElementById('cart-container');
+    const totalAmountElement = document.getElementById('total-amount'); // Element pentru suma totală
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Funcție pentru afișarea produselor din coș
@@ -8,8 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cart.length === 0) {
             cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+            updateCartTotal(0); // Actualizează suma totală la 0
             return;
         }
+
+        let total = 0; // Variabilă pentru suma totală
 
         cart.forEach((productId, index) => {
             // Fetch pentru fiecare produs din coș
@@ -26,11 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="remove-from-cart" data-index="${index}">Remove</button>
                     `;
                     cartContainer.appendChild(productDiv);
+
+                    // Adaugă prețul produsului la total
+                    total += product.price;
+
+                    // Actualizează suma totală după ce toate produsele sunt afișate
+                    updateCartTotal(total);
                 })
                 .catch((error) => {
                     console.error('Error fetching product details:', error);
                 });
         });
+    }
+
+    // Funcție pentru actualizarea sumei totale
+    function updateCartTotal(total) {
+        totalAmountElement.textContent = total.toFixed(2); // Afișează suma totală cu 2 zecimale
     }
 
     // Funcție pentru eliminarea unui produs din coș
