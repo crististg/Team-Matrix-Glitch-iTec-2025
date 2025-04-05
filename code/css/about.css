@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.google.com/specimen/Nova+Round?query=round');
+
+:root {
+    --special-color: #522546;
+    --primary-color: #3f2933;
+    --secondary-color: #735557;
+    --footer-color: #735557;
+    --hover-color: #410445;
+    --text-color: #FFF8F8;
+    --font-fam-branding: 'Rock Salt', cursive;
+    --font-fam-text: 'Nova Round', sans-serif;
+}
+
+body{
+    color:white;
+}
+
+main {
+    margin-top:90px;
+    background-color: var(--primary-color);
+    min-height:70px;
+    min-width:100%;
+    padding-bottom:80px;
+    padding-left:none !important;
+    color:white;
+  }
+
+  @keyframes bgFillDown {
+    0% {
+      background-size: 100% 0%;
+    }
+    100% {
+      background-size: 100% 100%;
+    }
+  }
+  
+  main div#uppage{
+    background-image: linear-gradient(to bottom, var(--footer-color), var(--footer-color));
+    background-repeat: no-repeat;
+    background-size: 100% 0%;
+    animation: bgFillDown 2.5s ease-in 0s forwards;
+    height: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    transition-property: background-color 2s;
+    transition-timing-function: linear;
+  }
+  
+  main div p#about{
+    color:white;
+    position:fixed;
+    font-family:var(--font-fam-branding);
+    transform:translate(0%, -80%);
+    font-size:30px;
+    animation: fade-in 2s ease-in 1 forwards;
+  }
+
+  main div#blablabla p{
+    opacity:0;
+    color:white;
+    text-align:center;
+    position:fixed;
+    font-family:var(--font-fam-text);
+    transform:translate(0%, -80%);
+    font-size:14px;
+    animation: fade-in 0.5s ease-in 1 forwards;
+    animation-delay:2.5s;
+  }
+
+  main div{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+  main div img {
+    width: 500px;
+    position: relative;
+    transform: translate(0, -33%); /* move up by 50% of its height */
+    z-index: 2;
+    animation: fade-in 1s ease-in 1 forwards;
+  }  
+  
