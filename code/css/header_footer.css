@@ -285,25 +285,73 @@ img.logo:hover,img.logo:focus{
     animation: rotate 1s linear infinite;
 }
 
+#play-pause-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#play-pause-btn:hover {
+    background-color: var(--hover-color);
+}
+
+#music-player-frame {
+    width: 326px; /* Lățimea playerului */
+    height: 360px; /* Înălțimea ajustată pentru player */
+    position: fixed; /* Poziționare fixă */
+    top: 120px; /* Poziționează în partea dreaptă sus */
+    right: 20px; /* Distanța față de marginea dreaptă */
+    border: 2px solid var(--primary-color); /* Bordura playerului */
+    border-radius: 20px; /* Colțuri rotunjite */
+    background-color: var(--secondary-color); /* Fundal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Umbra */
+    z-index: 1000; /* Asigură-te că este deasupra altor elemente */
+    overflow: hidden;
+}
+
 .music-player {
+    padding: 13px;
     position: fixed;
-    top: 120px;
-    right: 20px;
     background-color: var(--secondary-color);
     color: var(--text-color);
-    padding: 15px;
     border-style: solid;
     border-width: 2px;
     border-color: var(--primary-color);
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: fit-content;
     z-index: 1000;
     transform: scale(1);
     transform-origin: top right;
     transition: transform 0.8s ease, opacity 0.8s ease;
     opacity: 1;
-  }
+    height: fit-content;
+}
+
+.music-player .playlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Înălțimea maximă a listei */
+    overflow-y: auto; /* Permite scroll-ul pe axa verticală */
+    scrollbar-width: thin; /* Stilizează scrollbar-ul (pentru Firefox) */
+}
+
+.music-player .playlist::-webkit-scrollbar {
+    width: 8px; /* Lățimea scrollbar-ului */
+}
+
+.music-player .playlist::-webkit-scrollbar-thumb {
+    background-color: var(--hover-color); /* Culoarea scrollbar-ului */
+    border-radius: 4px; /* Colțuri rotunjite pentru scrollbar */
+}
 
 .music-player.hidden {
     transform: scale(0.8);
@@ -329,15 +377,19 @@ img.logo:hover,img.logo:focus{
     margin: 0;
 }
 
-.music-player .playlist li {
-    border-radius: 7px;
-    padding: 5px;
+.playlist-item {
     cursor: pointer;
+    padding: 5px;
+    border-radius: 15px;
     transition: background-color 0.3s ease;
 }
 
-.music-player .playlist li:hover {
+.playlist-item:hover {
     background-color: var(--hover-color);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
+}
+
+.playlist-item.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
 }
