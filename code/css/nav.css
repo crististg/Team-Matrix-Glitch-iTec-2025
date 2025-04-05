@@ -2,11 +2,12 @@
 @import url('https://fonts.google.com/specimen/Nova+Round?query=round');
 
 :root {
-    --special-color: #522546;
-    --primary-color: #3f2933;
-    --secondary-color: #735557;
-    --footer-color: #735557;
-    --hover-color: #410445;
+    --special-color: #546274;
+    --primary-color: #002147;
+    --secondary-color: #0d1b2a;
+    --footer-color:#112233;
+    --title-color: #00fff7;
+    --hover-color: #264062;
     --text-color: #FFF8F8;
     --font-fam-branding: 'Rock Salt', cursive;
     --font-fam-text: 'Nova Round', sans-serif;
@@ -38,20 +39,21 @@ main div p.homecontent{
 }
 
 #firstsection {
-    padding: 40px;
+    padding: 30px;
+    padding-left: 0px;
     color: var(--text-color);
 }
 
 .firstsection-content {
     display: flex;
-    align-items: flex-start; /* Align items to the top of the container */
-    justify-content: space-between; /* Space between image and text */
-    gap: 20px;
-    text-align: left;
+    align-items: center; 
+    justify-content: center; 
+    gap: 130px;
+    text-align: center;
 }
 
 .firstsection-content img {
-    max-width: 40%; /* Image on the left */
+    max-width: 40%; 
     height: auto;
     border-radius: 10px;
     animation: rotate 20s linear infinite;
@@ -63,18 +65,18 @@ main div p.homecontent{
 }
 
 .text-content h2.section-title {
-    font-family: var(--font-fam-branding);
+    font-family: var(--font-fam-text);
     font-size: 40px;
-    color: var(--hover-color);
-    margin-bottom: 10px; /* Space between title and text */
-    text-shadow: 1px 1px 3px black;
+    color: var();
+    margin-bottom: 10px; 
+    text-shadow: 5px 4px 10px var(--special-color);
 }
 
 .text-content .homecontent {
     font-family: var(--font-fam-text);
     font-size: 18px;
     line-height: 1.6;
-    text-align: left;
+    text-align: center;
 }
 
 
@@ -160,5 +162,64 @@ main div p.homecontent{
   @keyframes bounce {
     0%, 100% { height: 20%; }
     50% { height: 100%; }
+  }
+
+ 
+.glitchy-section {
+    position: relative;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+  }
+  
+  .glitchy-section h1,
+  .glitchy-section p {
+    color:var(--text-color);
+    position: relative;
+    z-index: 1;
+  }
+
+  .glitchy-section h1{
+    font-size:30px;
+    text-shadow: 2px 2px 5px rgba(0, 255, 0, 1);      
+  }
+  
+  .glitchy-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .glitch-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 255, 0, 0.8);
+    opacity: 0.8;
+    animation: glitch-line-animation 0.1s infinite alternate;
+  }
+  
+  .glitch-line:nth-child(even) {
+    background: rgba(255, 0, 255, 0.8);
+  }
+  
+  @keyframes glitch-line-animation {
+    0% {
+      transform: translateX(-100%) skewX(-30deg);
+    }
+    50% {
+      transform: translateX(100%) skewX(30deg);
+    }
+    100% {
+      transform: translateX(-100%) skewX(-30deg);
+    }
   }
   
