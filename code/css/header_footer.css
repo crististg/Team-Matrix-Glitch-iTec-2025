@@ -193,6 +193,21 @@ a {
     transform: scale(1.2);
 }
 
+#now-playing {
+    font-family: var(--font-fam-branding);
+    font-size: 18px;
+    margin-bottom: -2px;
+}
+
+#song-title {
+    text-align: center;
+    font-family: var(--font-fam-text);
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-colorsi);
+    margin: 0;
+}
+
 footer{
     background-color: var(--footer-color);
     width: 100%;
@@ -294,6 +309,7 @@ img.logo:hover,img.logo:focus{
 .music-player audio {
     width: 100%;
     margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .music-player .playlist {

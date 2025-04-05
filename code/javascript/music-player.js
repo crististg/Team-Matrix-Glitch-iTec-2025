@@ -31,21 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     playlist.forEach((song, index) => {
         const li = document.createElement('li');
-        li.textContent = song.split('/').pop();
+        li.textContent = song.split('/').pop().replace('.mp3', ''); // Elimină ".mp3"
         li.addEventListener('click', () => loadSong(index));
         playlistElement.appendChild(li);
     });
-
+    
     function loadSong(index) {
         currentSong = index;
     
         document.querySelectorAll('.playlist li').forEach(li => li.classList.remove('active'));
-    
         playlistElement.children[index].classList.add('active');
     
         audio.src = playlist[index];
-        nowPlaying.textContent = 'Now Playing: ' + playlist[index].split('/').pop();
+        const songTitle = playlist[index].split('/').pop().replace('.mp3', ''); // Elimină ".mp3"
+        document.getElementById('song-title').textContent = songTitle;
         audio.play();
+        audio.muted = false;
     }
 
     audio.addEventListener('ended', () => {
