@@ -269,7 +269,17 @@ img.logo:hover,img.logo:focus{
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
-    z-index: 1000; /* Deasupra altor elemente */
+    z-index: 1000;
+    transform: scale(1);
+    transform-origin: top right;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    opacity: 1;
+  }
+
+.music-player.hidden {
+    transform: scale(0.8);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .music-player h3 {
