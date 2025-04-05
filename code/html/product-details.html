@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GlitchStyle</title>
+        <link rel="stylesheet" href="../css/nav.css">
+        <link rel="stylesheet" href="../css/header_footer.css">
+        <link rel="icon" type="image/x-icon" href="/public/imagini/logo.png">
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="branding">
+                <img class="logo" src="/public/imagini/logo.png" alt="Vinyl Logo">
+                <a href="/code/html/home.html">GlitchStyle</a>
+            </div>
+            <div class="nav">
+                <nav class="navbar">
+                    <ul>
+                        <li class="but"><a href="home.html">Home</a></li>
+                        <li class="but"><a href="products.html">Products</a></li>
+                        <li class="but"><a href="collabs.html">Collabs</a></li>
+                        <li class="but"><a href="about.html">About us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="signin">
+                <ul>
+                    <li>
+                        <a href="/code/html/cart.html">
+                            <div class="shopping-cart">
+                                <img src="/public/imagini/cart.png" alt="Shopping-Cart"/ style="height: 50px; width: 50px;">
+                            </div>
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <div class="but">
+                            <a href="/code/html/signin.html">
+                                Log in
+                            </a>
+                        </div>
+                    </li> 
+                    <li class="signup">
+                        <div class="but butcolor">
+                            <a href="/code/html/signup.html">
+                                Sign up
+                            </a>
+                        </div>
+                    </li> 
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div id="product-details-container" style="margin-top: 100px; color: white;">
+            </div>
+            <button id="add-to-cart">Add to Cart</button>
+        </main>
+        
+        <iframe id="music-player-frame" src="/code/html/music-player.html"></iframe>
+        <button class="reopen-btn" style="display: none;">🎵</button>
+
+        <footer class="footer"> 
+            <div>
+                <h1>2025 GlitchStyle. All rights reserved.</h1>
+            </div>
+        </footer>
+        <script src="/code/javascript/music-player.js"></script>
+
+        <script src="/code/javascript/product-details.js"></script>
+    </body>
+</html>

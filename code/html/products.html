@@ -27,6 +27,14 @@
         <div class="signin">
             <ul>
                 <li>
+                    <a href="/code/html/cart.html">
+                        <div class="shopping-cart">
+                            <img src="/public/imagini/cart.png" alt="Shopping-Cart"/ style="height: 50px; width: 50px;">
+                        </div>
+                    </a>
+                    
+                </li>
+                <li>
                     <div class="but">
                         <a href="/code/html/signin.html">
                             Log in
@@ -45,77 +53,88 @@
     </header>
 
     <main>
-        <div id="product-list" class="product-list">
+        <div id="filter-sort-controls" style="margin-top: 100px;">
+            <label for="sort-order">Sort by Price:</label>
+            <select id="sort-order">
+                <option value="asc">Low to High</option>
+                <option value="desc">High to Low</option>
+            </select>
+        
+            <label for="filter-type">Filter by Type:</label>
+            <input type="text" id="filter-type" placeholder="Enter clothing type (e.g., pants, shirts)" />
+        
+            <button id="apply-filters">Apply</button>
+        </div>
+        
+        <div id="products-container" class="product-list">
         </div>
     </main>
 
-    <script>
-        fetch('http://localhost:3000/products')
-        .then(response => response.json())
-        .then(products => {
-            console.log('Fetched products:', products);
-            const productList = document.getElementById('product-list');
-            products.forEach(product => {
-                const productDiv = document.createElement('div');
-                productDiv.classList.add('product');
-                productDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h2>${product.name}</h2>
-                <p>Price: $${product.price.toFixed(2)}</p>
-                `;
-                productList.appendChild(productDiv);
-            });
-        })
-        .catch(error => console.error('Error fetching products:', error));
-    </script>
+    
     
     <iframe id="music-player-frame" src="/code/html/music-player.html" style="display: none;"></iframe>
     <button class="reopen-btn">🎵</button>
 
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>About Us</h3>
-                <p>Learn more about GlitchStyle and our mission to combine fashion and music.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="collabs.html">Collabs</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <p>Email: test@gmail.com</p>
-                <p>Phone: 0723 nu dau nr. la gay</p>
-            </div>
+    <footer class="footer"> 
+        <div>
+            <h1>2025 GlitchStyle. All rights reserved.</h1>
         </div>
-        
-        <h1>2025 GlitchStyle. All rights reserved.</p>
     </footer>
     <script src="/code/javascript/music-player.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const musicPlayerFrame = document.getElementById('music-player-frame');
-            const reopenButton = document.querySelector('.reopen-btn');
+            const sortOrderSelect = document.getElementById('sort-order');
+            const applyFiltersButton = document.getElementById('apply-filters');
+            const productsContainer = document.getElementById('products-container');
     
-            // Ascultă mesajele trimise de iframe
-            window.addEventListener('message', (event) => {
-                if (event.data === 'close-player') {
-                    // Ascunde iframe-ul și afișează butonul de redeschidere
-                    musicPlayerFrame.style.display = 'none';
-                    reopenButton.style.display = 'block';
+            // Funcție pentru afișarea produselor
+            function displayProducts(products) {
+            productsContainer.innerHTML = ''; // Golește containerul
+            products.forEach((product) => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+            productDiv.innerHTML = `
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p>Price: $${product.price.toFixed(2)}</p>
+            <img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto;" />
+            <a href="/code/html/product-details.html?id=${product.id}" class="details-link" style="color:black">View Details</a>
+            `;
+        productsContainer.appendChild(productDiv);
+    });
+}
+    
+            // Funcție pentru sortare
+            function fetchProducts() {
+                const sortOrder = sortOrderSelect.value;
+    
+                // Construiește URL-ul doar cu parametrul de sortare
+                let url = 'http://localhost:3000/products?';
+                if (sortOrder) {
+                    url += `order=${sortOrder}`;
                 }
+    
+                console.log('Fetching products with URL:', url);
+    
+                fetch(url)
+                    .then((response) => response.json())
+                    .then((products) => {
+                        console.log('Products received:', products); // Debugging
+            displayProducts(products);
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching products:', error);
+                    });
+            }
+    
+            // Eveniment pentru aplicarea sortării
+            applyFiltersButton.addEventListener('click', () => {
+                console.log('Apply button clicked');
+                fetchProducts();
             });
     
-            // Redeschide playerul muzical
-            reopenButton.addEventListener('click', () => {
-                musicPlayerFrame.style.display = 'block';
-                reopenButton.style.display = 'none';
-            });
+            // Încarcă produsele inițial
+            fetchProducts();
         });
     </script>
 </body>

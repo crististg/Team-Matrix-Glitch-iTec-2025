@@ -22,7 +22,7 @@
             <input type="number" id="price" name="price" step="0.01" required>
             
             <label for="image">Image URL:</label>
-            <input type="text" id="image" name="image">
+            <input type="text" id="image" name="image"> 
             
             <button type="submit">Add Product</button>
         </form>
@@ -36,11 +36,11 @@
                 name: formData.get('name'),
                 description: formData.get('description'),
                 price: parseFloat(formData.get('price')),
-                image: formData.get('image')
+                image: formData.get('image'),
             };
-
+        
             console.log('Product to be sent:', product);
-
+        
             fetch('http://localhost:3000/products', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

@@ -47,21 +47,46 @@ const db_products = new sqlite3.Database('./products.db', (err) => {
 });
 
 app.get('/products', (req, res) => {
-    db_products.all('SELECT * FROM products', [], (err, rows) => {
+    const { order } = req.query;
+    let query = 'SELECT * FROM products';
+
+    // Adaugă sortarea după preț, dacă este specificată
+    if (order) {
+        const sortOrder = order === 'desc' ? 'DESC' : 'ASC';
+        query += ` ORDER BY price ${sortOrder}`;
+    }
+
+    console.log('Executing query:', query); // Debugging
+
+    db_products.all(query, [], (err, rows) => {
         if (err) {
             console.error('Error fetching products:', err.message);
             res.status(500).json({ error: err.message });
         } else {
-            console.log('Fetched products:', rows);
             res.json(rows);
         }
     });
 });
 
-app.post('/products', (req, res) => {
-    const { name, description, price, image } = req.body;
+app.get('/products/:id', (req, res) => {
+    const productId = req.params.id;
 
-    console.log('Received product:', { name, description, price, image });
+    db_products.get('SELECT * FROM products WHERE id = ?', [productId], (err, row) => {
+        if (err) {
+            console.error('Error fetching product details:', err.message);
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'Product not found' });
+        } else {
+            res.json(row);
+        }
+    });
+});
+
+app.post('/products', (req, res) => {
+    const { name, description, price, image} = req.body;
+
+    console.log('Received product:', { name, description, price, image});
 
     db_products.run(
         'INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)',
@@ -125,5 +150,20 @@ app.post('/signup', (req, res) => {
 
         // Răspuns pentru utilizator
         res.send('<h1>Account created successfully! You can now <a href="/code/html/signin.html">log in</a>.</h1>');
+    });
+});
+
+// Endpoint pentru sortarea produselor după preț
+app.get('/products/sort', (req, res) => {
+    const { order } = req.query; // `order` poate fi 'asc' sau 'desc'
+    const sortOrder = order === 'desc' ? 'DESC' : 'ASC';
+
+    db_products.all(`SELECT * FROM products ORDER BY price ${sortOrder}`, [], (err, rows) => {
+        if (err) {
+            console.error('Error sorting products:', err.message);
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
     });
 });
