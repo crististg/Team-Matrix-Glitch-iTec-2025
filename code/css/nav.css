@@ -39,7 +39,7 @@ main div p.homecontent{
 }
 
 #firstsection {
-    background-image: conic-gradient(at 25% 50%, var(--secondary-color), var(--special-color), var(--secondary-color));
+    background: conic-gradient(at 31% 50%, var(--secondary-color), var(--hover-color), var(--secondary-color));
     padding: 30px;
     padding-left: 0px;
     color: var(--text-color);
@@ -58,6 +58,7 @@ main div p.homecontent{
     height: auto;
     border-radius: 10px;
     animation: rotate 20s linear infinite;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
 }
 
 .text-content {
@@ -229,21 +230,13 @@ main div p.homecontent{
     margin:5px;
     padding-left:10px;
 }
-  
-#error{
-    max-height:20px;
-    
-}
-  #error p{
-    background-color: var(--primary-color);
-    color:white;
-    font-weight:bolder;
-    max-height:10px;
-  }
 
 /* Retro Window Design */
 .retro-window {
-    width: 99.5%;
+    margin:30px;
+    width: 95.5%;
+    justify-content: center;
+    align-items:center;
     background-color: var(--primary-color); /* Light grey for the content area */
     border: 2px solid #A9A9A9; /* Light grey border */
     border-radius: 8px;
@@ -268,23 +261,6 @@ main div p.homecontent{
     font-size: 16px;
     color: white;
 }
-
-/* Close Button (Red X) */
-.close-btn {
-    background-color: #FF3B30; /* Bright red for the close button */
-    color: white;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-/* Close Button Hover Effect */
-.close-btn:hover {
-    background-color: #D91C1C;
-}
-
 /* Content Area */
 .window-content {
     padding: 20px;
