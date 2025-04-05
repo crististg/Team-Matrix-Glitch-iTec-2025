@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="/code/css/header_footer.css">
+</head>
+<body>
+    <div class="music-player">
+        <button class="close-btn" onclick="closePlayer()">&times;</button>
+        <h3 id="now-playing">Now Playing:</h3>
+        <p id="song-title"></p>
+        <audio id="audio" controls autoplay muted>
+            <source src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <ul class="playlist">
+        </ul>
+    </div>
+    <script>
+        function closePlayer() {
+            window.parent.postMessage('close-player', '*');
+        }
+    </script>
+    <script src="/code/javascript/music-player.js"></script>
+</body>
+</html>

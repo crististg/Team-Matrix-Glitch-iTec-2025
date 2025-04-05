@@ -69,20 +69,9 @@
         .catch(error => console.error('Error fetching products:', error));
     </script>
     
-    <div class="music-player">
-        <button class="close-btn">&times;</button>
-        <h3 id="now-playing">Now Playing</h3>
-        <br/>
-        <p id="song-title"></p>
-        <audio id="audio" controls autoplay muted>
-            <source src="" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        <ul class="playlist">
-        </ul>
-    </div>
+    <iframe id="music-player-frame" src="/code/html/music-player.html" style="display: none;"></iframe>
+    <button class="reopen-btn">🎵</button>
 
-    <button class="reopen-btn" style="display: none;">🎵</button>
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-column">
@@ -108,5 +97,26 @@
         <h1>2025 GlitchStyle. All rights reserved.</p>
     </footer>
     <script src="/code/javascript/music-player.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const musicPlayerFrame = document.getElementById('music-player-frame');
+            const reopenButton = document.querySelector('.reopen-btn');
+    
+            // Ascultă mesajele trimise de iframe
+            window.addEventListener('message', (event) => {
+                if (event.data === 'close-player') {
+                    // Ascunde iframe-ul și afișează butonul de redeschidere
+                    musicPlayerFrame.style.display = 'none';
+                    reopenButton.style.display = 'block';
+                }
+            });
+    
+            // Redeschide playerul muzical
+            reopenButton.addEventListener('click', () => {
+                musicPlayerFrame.style.display = 'block';
+                reopenButton.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>

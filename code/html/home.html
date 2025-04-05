@@ -121,18 +121,7 @@
     </div>
         </main>
         
-        <div class="music-player">
-            <button class="close-btn">&times;</button>
-            <h3 id="now-playing">Now Playing</h3>
-            <p id="song-title"></p>
-            <audio id="audio" controls>
-                <source src="" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <ul class="playlist">
-            </ul>
-        </div>
-
+        <iframe id="music-player-frame" src="/code/html/music-player.html"></iframe>
         <button class="reopen-btn" style="display: none;">🎵</button>
 
         <footer class="footer">        
@@ -140,5 +129,4 @@
         </footer>
         <script src="/code/javascript/music-player.js"></script>
     </body>
-
 </html>
