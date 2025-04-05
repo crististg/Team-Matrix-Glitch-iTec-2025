@@ -20,10 +20,6 @@ body{
     background-color: var(--primary-color);
 }
 
-main{
-    margin: 90px;
-}
-
 .header {
     z-index: 10;
     background-color: var(--secondary-color);
