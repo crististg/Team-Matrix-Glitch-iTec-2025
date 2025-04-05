@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="../css/header_footer.css">
+    <link rel="stylesheet" href="/code/css/products.css">
 </head>
 <body>
     <header class="header">
@@ -44,7 +45,13 @@
     </header>
 
     <main>
-        <div id="product-list" class="product-list"></div>
+        <div id="product-list" class="product-list">
+            <div class="product">
+                <img src="image1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Price: $123.00</p>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -59,7 +66,6 @@
                 productDiv.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
                 <h2>${product.name}</h2>
-                <p>${product.description}</p>
                 <p>Price: $${product.price.toFixed(2)}</p>
                 `;
                 productList.appendChild(productDiv);
@@ -69,6 +75,7 @@
     </script>
     
     <div class="music-player">
+        <button class="close-btn">&times;</button>
         <h3>Now Playing</h3>
         <audio id="audio-player" controls>
             <source src="/public/music/song1.mp3" type="audio/mpeg">
@@ -81,6 +88,7 @@
         </ul>
     </div>
 
+    <button class="reopen-btn" style="display: none;">🎵</button>
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-column">
@@ -105,5 +113,6 @@
         
         <h1>2025 GlitchStyle. All rights reserved.</p>
     </footer>
+    <script src="/code/javascript/music-player.js"></script>
 </body>
 </html>

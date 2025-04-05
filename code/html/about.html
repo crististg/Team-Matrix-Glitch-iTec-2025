@@ -58,6 +58,7 @@
     </main>
     
     <div class="music-player">
+        <button class="close-btn">&times;</button>
         <h3>Now Playing</h3>
         <audio id="audio-player" controls>
             <source src="/public/music/song1.mp3" type="audio/mpeg">
@@ -69,6 +70,8 @@
             <li data-src="/public/music/song3.mp3">Song 3 - Artist 3</li>
         </ul>
     </div>
+
+    <button class="reopen-btn" style="display: none;">🎵</button>
 
     <footer class="footer">
         <div class="footer-grid">
@@ -94,5 +97,6 @@
         
         <h1>2025 GlitchStyle. All rights reserved.</p>
     </footer>
+    <script src="/code/javascript/music-player.js"></script>
 </body>
 </html>
