@@ -18,13 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSong=0;
 
     closeButton.addEventListener('click', () => {
+      musicPlayer.classList.add('hidden');
+      setTimeout(() => {
         musicPlayer.style.display = 'none';
         reopenButton.style.display = 'block';
+      }, 300); // wait for transition to end
     });
-
+  
     reopenButton.addEventListener('click', () => {
-        musicPlayer.style.display = 'block';
-        reopenButton.style.display = 'none';
+      musicPlayer.style.display = 'block';
+      // Force reflow to make transition work
+      void musicPlayer.offsetWidth;
+      musicPlayer.classList.remove('hidden');
+      reopenButton.style.display = 'none';
     });
 
     const playlistElement = document.querySelector('.playlist');

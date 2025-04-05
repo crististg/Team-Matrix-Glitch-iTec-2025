@@ -2,11 +2,12 @@
 @import url('https://fonts.google.com/specimen/Nova+Round?query=round');
 
 :root {
-    --special-color: #522546;
-    --primary-color: #3f2933;
-    --secondary-color: #735557;
-    --footer-color: #735557;
-    --hover-color: #410445;
+    --special-color: #546274;
+    --primary-color: #002147;
+    --secondary-color: #0d1b2a;
+    --footer-color:#112233;
+    --title-color: #00fff7;
+    --hover-color: #264062;
     --text-color: #FFF8F8;
     --font-fam-branding: 'Rock Salt', cursive;
     --font-fam-text: 'Nova Round', sans-serif;
@@ -36,3 +37,189 @@ main div p.homecontent{
     color:white;
     margin:40px;
 }
+
+#firstsection {
+    padding: 30px;
+    padding-left: 0px;
+    color: var(--text-color);
+}
+
+.firstsection-content {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 130px;
+    text-align: center;
+}
+
+.firstsection-content img {
+    max-width: 40%; 
+    height: auto;
+    border-radius: 10px;
+    animation: rotate 20s linear infinite;
+}
+
+.text-content {
+    flex: 1; /* Allow the text to take remaining space */
+    max-width: 600px;
+}
+
+.text-content h2.section-title {
+    font-family: var(--font-fam-text);
+    font-size: 40px;
+    color: var();
+    margin-bottom: 10px; 
+    text-shadow: 5px 4px 10px var(--special-color);
+}
+
+.text-content .homecontent {
+    font-family: var(--font-fam-text);
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+.sound-of-style {
+    background: linear-gradient(to right, #0f0f0f, #1c1c1c);
+    padding: 60px 20px;
+    color: #eaeaea;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .content-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  .text-content {
+    max-width: 600px;
+  }
+  
+  .text-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #00fff7;
+  }
+  
+  .text-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .btn-glitch {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00fff7;
+    color: #0f0f0f;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-glitch:hover {
+    background: #0f0f0f;
+    color: #00fff7;
+    border: 1px solid #00fff7;
+}
+  
+  .equalizer {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+    height: 80px;
+    width: 60px;
+  }
+  
+  .equalizer span {
+    width: 6px;
+    background: #00fff7;
+    animation: bounce 1s infinite ease-in-out;
+  }
+  
+  .equalizer span:nth-child(1) { animation-delay: 0s; }
+  .equalizer span:nth-child(2) { animation-delay: 0.1s; }
+  .equalizer span:nth-child(3) { animation-delay: 0.2s; }
+  .equalizer span:nth-child(4) { animation-delay: 0.3s; }
+  .equalizer span:nth-child(5) { animation-delay: 0.4s; }
+  
+  @keyframes bounce {
+    0%, 100% { height: 20%; }
+    50% { height: 100%; }
+  }
+
+ 
+.glitchy-section {
+    position: relative;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+  }
+  
+  .glitchy-section h1,
+  .glitchy-section p {
+    color:var(--text-color);
+    position: relative;
+    z-index: 1;
+  }
+
+  .glitchy-section h1{
+    font-size:30px;
+    text-shadow: 2px 2px 5px rgba(0, 255, 0, 1);      
+  }
+  
+  .glitchy-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .glitch-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 255, 0, 0.8);
+    opacity: 0.8;
+    animation: glitch-line-animation 0.1s infinite alternate;
+  }
+  
+  .glitch-line:nth-child(even) {
+    background: rgba(255, 0, 255, 0.8);
+  }
+  
+  @keyframes glitch-line-animation {
+    0% {
+      transform: translateX(-100%) skewX(-30deg);
+    }
+    50% {
+      transform: translateX(100%) skewX(30deg);
+    }
+    100% {
+      transform: translateX(-100%) skewX(-30deg);
+    }
+  }
+  

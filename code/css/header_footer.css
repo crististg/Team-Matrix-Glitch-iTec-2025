@@ -2,11 +2,12 @@
 @import url('https://fonts.google.com/specimen/Nova+Round?query=round');
 
 :root {
-    --special-color: #522546;
-    --primary-color: #3f2933;
-    --secondary-color: #735557;
-    --footer-color: #735557;
-    --hover-color: #410445;
+    --special-color: #546274;
+    --primary-color: #002147;
+    --secondary-color: #0d1b2a;
+    --footer-color:#112233;
+    --title-color: #00fff7;
+    --hover-color: #264062;
     --text-color: #FFF8F8;
     --font-fam-branding: 'Rock Salt', cursive;
     --font-fam-text: 'Nova Round', sans-serif;
@@ -297,7 +298,17 @@ img.logo:hover,img.logo:focus{
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
-    z-index: 1000; /* Deasupra altor elemente */
+    z-index: 1000;
+    transform: scale(1);
+    transform-origin: top right;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    opacity: 1;
+  }
+
+.music-player.hidden {
+    transform: scale(0.8);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .music-player h3 {
