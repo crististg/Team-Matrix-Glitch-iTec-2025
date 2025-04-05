@@ -8,7 +8,10 @@ const PORT = 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'code')));
+const cors = require('cors');
+app.use(cors());
 
 // Database setup
 const db = new sqlite3.Database('./users.db', (err) => {
@@ -24,6 +27,55 @@ const db = new sqlite3.Database('./users.db', (err) => {
             )
         `);
     }
+});
+
+const db_products = new sqlite3.Database('./products.db', (err) => {
+    if (err) {
+        console.error('Error opening database:', err.message);
+    } else {
+        console.log('Connected to SQLite database.');
+        db_products.run(`
+            CREATE TABLE IF NOT EXISTS products (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                description TEXT,
+                price REAL NOT NULL,
+                image TEXT
+            )
+        `);
+    }
+});
+
+app.get('/products', (req, res) => {
+    db_products.all('SELECT * FROM products', [], (err, rows) => {
+        if (err) {
+            console.error('Error fetching products:', err.message);
+            res.status(500).json({ error: err.message });
+        } else {
+            console.log('Fetched products:', rows);
+            res.json(rows);
+        }
+    });
+});
+
+app.post('/products', (req, res) => {
+    const { name, description, price, image } = req.body;
+
+    console.log('Received product:', { name, description, price, image });
+
+    db_products.run(
+        'INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)',
+        [name, description, price, image],
+        function (err) {
+            if (err) {
+                console.error('Error inserting product:', err.message); // Afișează erorile
+                res.status(500).json({ error: err.message });
+            } else {
+                console.log('Product inserted with ID:', this.lastID); // Confirmă inserarea
+                res.json({ id: this.lastID });
+            }
+        }
+    );
 });
 
 // Routes
