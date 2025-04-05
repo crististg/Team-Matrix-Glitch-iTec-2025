@@ -51,7 +51,7 @@ main {
   
   main div p#about{
     color:white;
-    position:fixed;
+    position:relative;
     font-family:var(--font-fam-branding);
     transform:translate(0%, -80%);
     font-size:30px;
@@ -59,13 +59,15 @@ main {
   }
 
   main div#blablabla p{
+    margin:30px;
+    transform:translate(0%, 100%);
     opacity:0;
     color:white;
     text-align:center;
-    position:fixed;
+    position:relative;
     font-family:var(--font-fam-text);
-    transform:translate(0%, -80%);
-    font-size:14px;
+    transform:translate(0%, -40%);
+    font-size:17px;
     animation: fade-in 0.5s ease-in 1 forwards;
     animation-delay:2.5s;
   }

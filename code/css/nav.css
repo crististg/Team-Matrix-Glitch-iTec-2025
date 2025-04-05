@@ -20,16 +20,19 @@
     display: flex;
     align-items:top;
     justify-content: center;
-    color:white;
 }
 
 p#herosection{
     position:absolute;
     font-family: var(--font-fam-branding);   
-
-    font-size:38px;
+    font-size:56px;
     font-weight:lighter;
-    transform: translate(-110%, 235%);
-    color:var(--hover-color);
+    transform: translate(-40%, 125%);
+    color:white;
+    text-shadow: 2px 2px 5px var(--hover-color);      
     font-style: italic;
+}
+main div p.homecontent{
+    color:white;
+    margin:40px;
 }
