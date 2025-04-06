@@ -11,53 +11,60 @@
         <h1>Admin Panel</h1>
     </header>
     <main>
-        <form id="product-form">
-            <label for="name">Product Name:</label>
-            <input type="text" id="name" name="name" required>
-            
+        <form id="add-item-form">
+            <label for="type">Type:</label>
+            <select id="type" required>
+                <option value="product">Product</option>
+                <option value="collaboration">Collaboration</option>
+            </select>
+        
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Item Name" required />
+        
             <label for="description">Description:</label>
-            <textarea id="description" name="description"></textarea>
-            
+            <textarea id="description" placeholder="Item Description" required></textarea>
+        
             <label for="price">Price:</label>
-            <input type="number" id="price" name="price" step="0.01" required>
-            
-            <label for="image">Image URL:</label>
-            <input type="text" id="image" name="image"> 
-
-            <label for="image2">Image2 URL</label>
-            <input type="text" id="image2" name="image2">
-            
-            <button type="submit">Add Product</button>
+            <input type="number" id="price" placeholder="Price" required />
+        
+            <label for="image">Image URL 1:</label>
+            <input type="text" id="image" placeholder="Image URL 1" required />
+        
+            <label for="image2">Image URL 2:</label>
+            <input type="text" id="image2" placeholder="Image URL 2" />
+        
+            <button type="submit">Add Item</button>
         </form>
     </main>
     <script>
-        document.getElementById('product-form').addEventListener('submit', (event) => {
+        document.getElementById('add-item-form').addEventListener('submit', (event) => {
     event.preventDefault();
 
+    const type = document.getElementById('type').value;
     const name = document.getElementById('name').value;
     const description = document.getElementById('description').value;
     const price = parseFloat(document.getElementById('price').value);
     const image = document.getElementById('image').value;
     const image2 = document.getElementById('image2').value;
 
-    fetch('http://localhost:3000/products', {
+    fetch('http://localhost:3000/admin/add-item', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, description, price, image, image2 })
+        body: JSON.stringify({ type, name, description, price, image, image2 })
     })
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Failed to add product');
+                throw new Error('Failed to add item');
             }
             return response.json();
         })
         .then((data) => {
-            alert('Product added successfully!');
-            document.getElementById('product-form').reset();
+            alert(data.message);
+            document.getElementById('add-item-form').reset();
         })
         .catch((error) => {
             console.error('Error:', error);
-            alert('An error occurred while adding the product.');
+            alert('An error occurred while adding the item.');
         });
 });
     </script>

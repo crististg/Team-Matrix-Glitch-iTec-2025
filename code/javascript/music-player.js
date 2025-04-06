@@ -8,9 +8,9 @@ const playlist = [
     '/public/music/TokSik - STARSET.mp3',
     '/public/music/Whispers in the Dark - Skillet.mp3',
     '/public/music/Waiting On The Sky To Change - STARSET.mp3',
-    '/public/music/SOMETHING YOU COULD NEVER OWN - NEFFEX.mp3',
+    '/public/music/ SOMETHING YOU COULD NEVER OWN - NEFFEX.mp3',
     '/public/music/Back from the Dead - Skillet.mp3',
-    '/public/music/Sex, Drugs, Etc. - Beach Weather.mp3',
+    '/public/music/ Sex, Drugs, Etc. - Beach Weather.mp3',
     '/public/music/Do I Wanna Know - Arctic Monkeys.mp3',
     '/public/music/Halo - STARSET.mp3',
     '/public/music/La fereastra ta - Pyroblast.mp3'

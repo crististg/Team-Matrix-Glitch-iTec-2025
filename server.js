@@ -45,6 +45,69 @@ const db_products = new sqlite3.Database('./products.db', (err) => {
         `);
     }
 });
+const db_collaborations = new sqlite3.Database('./collaborations.db', (err) => {
+    if (err) {
+        console.error('Error opening collaborations database:', err.message);
+    } else {
+        console.log('Connected to SQLite collaborations database.');
+        db_collaborations.run(`
+            CREATE TABLE IF NOT EXISTS collaborations (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                description TEXT,
+                price REAL NOT NULL,
+                image TEXT,
+                image2 TEXT
+            )
+        `, (err) => {
+            if (err) {
+                console.error('Error creating collaborations table:', err.message);
+            } else {
+                console.log('Collaborations table initialized.');
+            }
+        });
+    }
+});
+
+app.post('/admin/add-item', (req, res) => {
+    const { type, name, description, price, image, image2 } = req.body;
+
+    console.log('Received item:', { type, name, description, price, image, image2 });
+
+    if (type === 'product') {
+        // Salvează în tabela `products`
+        db_products.run(
+            'INSERT INTO products (name, description, price, image, image2) VALUES (?, ?, ?, ?, ?)',
+            [name, description, price, image, image2],
+            function (err) {
+                if (err) {
+                    console.error('Error inserting product:', err.message);
+                    res.status(500).json({ error: err.message });
+                } else {
+                    console.log('Product inserted with ID:', this.lastID);
+                    res.json({ id: this.lastID, message: 'Product added successfully!' });
+                }
+            }
+        );
+    } else if (type === 'collaboration') {
+        // Salvează în tabela `collaborations`
+        db_collaborations.run(
+            'INSERT INTO collaborations (name, description, price, image, image2) VALUES (?, ?, ?, ?, ?)',
+            [name, description, price, image, image2],
+            function (err) {
+                if (err) {
+                    console.error('Error inserting collaboration:', err.message);
+                    res.status(500).json({ error: err.message });
+                } else {
+                    console.log('Collaboration inserted with ID:', this.lastID);
+                    res.json({ id: this.lastID, message: 'Collaboration added successfully!' });
+                }
+            }
+        );
+    } else {
+        res.status(400).json({ error: 'Invalid type. Must be "product" or "collaboration".' });
+    }
+});
 
 app.get('/products', (req, res) => {
     const { order } = req.query;
@@ -64,6 +127,52 @@ app.get('/products', (req, res) => {
             res.status(500).json({ error: err.message });
         } else {
             res.json(rows);
+        }
+    });
+});
+
+app.post('/collaborations', (req, res) => {
+    const { name, description, price, image, image2} = req.body;
+
+    console.log('Received collaboration:', { name, description, price, image, image2});
+
+    db_collaborations.run(
+        'INSERT INTO collaborations (name, description, price, image, image2) VALUES (?, ?, ?, ?, ?)',
+        [name, description, price, image, image2],
+        function (err) {
+            if (err) {
+                console.error('Error inserting collaboration:', err.message);
+                res.status(500).json({ error: err.message });
+            } else {
+                console.log('Collaboration inserted with ID:', this.lastID);
+                res.json({ id: this.lastID, message: 'Collaboration added successfully!' });
+            }
+        }
+    );
+});
+
+app.get('/collaborations', (req, res) => {
+    db_collaborations.all('SELECT * FROM collaborations', [], (err, rows) => {
+        if (err) {
+            console.error('Error fetching collaborations:', err.message);
+            res.status(500).json({ error: err.message });
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
+app.get('/collaborations/:id', (req, res) => {
+    const collaborationId = req.params.id;
+
+    db_collaborations.get('SELECT * FROM collaborations WHERE id = ?', [collaborationId], (err, row) => {
+        if (err) {
+            console.error('Error fetching collaboration details:', err.message);
+            res.status(500).json({ error: err.message });
+        } else if (!row) {
+            res.status(404).json({ error: 'Collaboration not found' });
+        } else {
+            res.json(row);
         }
     });
 });
