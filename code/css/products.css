@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.google.com/specimen/Nova+Round?query=round');
+
+:root {
+    --special-color: #546274;
+    --primary-color: #002147;
+    --secondary-color: #0d1b2a;
+    --footer-color:#112233;
+    --title-color: #00fff7;
+    --hover-color: #264062;
+    --text-color: #FFF8F8;
+    --font-fam-branding: 'Rock Salt', cursive;
+    --font-fam-text: 'Nova Round', sans-serif;
+}
+
+
+/* Product List Styles */
 .product-list {
     margin-top: 100px;
     display: grid;
@@ -19,11 +36,82 @@
     padding: 10px;
     text-align: center;
     background-color: #f9f9f9;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
 }
 
+/* Product Image */
 .product img {
     width: auto;
     height: 380px;
     border-radius: 10px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Glitch Effect - Only on hover */
+.product:hover::before,
+.product:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(97, 100, 155, 0.2), rgba(30, 6, 209, 0.1), rgba(86, 85, 114, 0.2));
+    pointer-events: none;
+    z-index: 2;
+    animation: glitch 0.2s ease-out 1 forwards; /* Run once, and hold at the end */
+}
+
+/* Zoom-In Effect on Hover */
+.product:hover img {
+    transform: scale(1.05);  /* Zoom in slightly */
+}
+
+/* Glitch Animation (just once on hover) */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-5px, 0);  /* Small shift for the glitch */
+    }
+    40% {
+        transform: translate(5px, 0);   /* Small shift for the glitch */
+    }
+    60% {
+        transform: translate(-5px, 0);  /* Small shift for the glitch */
+    }
+    100% {
+        transform: translate(0);        /* Reset to original position */
+    }
+}
+
+/* Hover effect - Product details */
+.product:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.product h3 {
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #777;
+    transition: color 0.3s ease;
+}
+
+/* Change text color on hover */
+.product:hover h3 {
+    color: #0dd614; /* Techy red */
+}
+
+.product:hover p {
+    color: #27e10b; /* Techy red */
 }
