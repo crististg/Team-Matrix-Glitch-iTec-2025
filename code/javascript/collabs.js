@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 collaborationCard.classList.add('collaboration-card');
                 collaborationCard.innerHTML = `
                     <div class="collaboration-images">
-                        <img src="${collaboration.image}" alt="${collaboration.name}" class="collaboration-image">
-                        <img src="${collaboration.image2}" alt="${collaboration.name}" class="collaboration-image">
+                        <img src="${collaboration.image}" class="collaboration-image">
+                        <img src="${collaboration.image2}" class="collaboration-image">
                     </div>
                     <h3>${collaboration.name}</h3>
                     <p>${collaboration.description}</p>
