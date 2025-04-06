@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.google.com/specimen/Nova+Round?query=round');
 
-:root {
+:root[data-theme='dark']{
     --special-color: #546274;
     --primary-color: #002147;
     --secondary-color: #0d1b2a;
@@ -13,6 +13,17 @@
     --font-fam-text: 'Nova Round', sans-serif;
 }
 
+:root{
+    --special-color: #221717;
+    --primary-color: #5c6677;
+    --secondary-color: #9199e0;
+    --footer-color:#495553;
+    --title-color: #00fff7;
+    --hover-color: #264062;
+    --text-color: #000000;
+    --font-fam-branding: 'Rock Salt', cursive;
+    --font-fam-text: 'Nova Round', sans-serif;
+}
 
 /* Product List Styles */
 .product-list {
@@ -34,6 +45,7 @@
     align-items: center;
     border-radius: 10px;
     padding: 10px;
+    color: #000;
     text-align: center;
     background-color: #f9f9f9;
     overflow: hidden;
@@ -44,7 +56,7 @@
 .product-cart{
     border: 1px solid #ccc;
     height: 500px;
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +84,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(97, 100, 155, 0.2), rgba(30, 6, 209, 0.1), rgba(86, 85, 114, 0.2));
     pointer-events: none;
     z-index: 2;
     animation: glitch 0.2s ease-out 1 forwards; /* Run once, and hold at the end */
@@ -122,9 +133,10 @@
 
 /* Change text color on hover */
 .product:hover h3 {
-    color: #0dd614; /* Techy red */
+    color: var(--secondary-color); /* Techy red */
 }
 
 .product:hover p {
-    color: #27e10b; /* Techy red */
+    color: var(--secondary-color); /* Techy red */
 }
+

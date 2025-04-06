@@ -35,7 +35,7 @@
                     <li>
                         <a href="/code/html/cart.html">
                             <div class="shopping-cart">
-                                <img src="/public/imagini/cart.png" alt="Shopping-Cart"/ style="height: 40px; width: 40px;">
+                                <img src="/public/imagini/cart.png" alt="Shopping-Cart" style="height: 40px; width: 40px;">
                             </div>
                         </a>
                         
@@ -60,10 +60,13 @@
 
         <main style="color: white;">
             <h1 style="text-align: center; margin-bottom: 50px;">Shopping Cart</h1>
-            <div id="cart-container" style="display: flex; justify-content: center;color: black;">
+            <div id="cart-container" style="display: flex; justify-content: center;flex-direction: column;align-items: center;color: black;">
+                <div class="cart-item">
+
+                </div>
             </div>
-            <div id="cart-total">
-                <h1 style="text-align: center;">Total: $<span id="total-amount">0.00</span></h3>
+            <div id="cart-total" style="margin-bottom: 60px;">
+                <h1 style="text-align: center;;">Total: $<span id="total-amount">0.00</span></h3>
             </div>
         </main>
     

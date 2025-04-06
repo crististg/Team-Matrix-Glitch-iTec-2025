@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Funcție pentru afișarea detaliilor produsului
     function displayProductDetails(product) {
         productDetailsContainer.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" style="width: 300px; height: auto;" />
             <h2>${product.name}</h2>
             <p>${product.description}</p>
             <p>Price: $${product.price.toFixed(2)}</p>
-            <img src="${product.image}" alt="${product.name}" style="width: 300px; height: auto;" />
         `;
     }
 

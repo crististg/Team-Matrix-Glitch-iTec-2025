@@ -14,15 +14,45 @@
 }
 
 :root{
-    --special-color: #ff0000;
-    --primary-color: #c02121;
-    --secondary-color: #8d3737;
-    --footer-color:#ffe70d;
+    --special-color: #221717;
+    --primary-color: #5c6677;
+    --secondary-color: #9199e0;
+    --footer-color:#495553;
     --title-color: #00fff7;
     --hover-color: #264062;
     --text-color: #000000;
     --font-fam-branding: 'Rock Salt', cursive;
     --font-fam-text: 'Nova Round', sans-serif;
+}
+
+#add-to-cart {
+    background-color: var(--special-color); /* Use your predefined accent color */
+    color: var(--text-color); /* Use your predefined text color */
+    border: none;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#add-to-cart:hover {
+    background-color: var(--hover-color); /* Darker shade for hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+#add-to-cart:active {
+    transform: translateY(1px); /* Pressed effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#add-to-cart:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 body{
@@ -249,7 +279,6 @@ a {
     font-size: 20px;
     cursor: pointer;
     transition: transform 0.6s ease;
-    
 }
 
 .close-btn:hover {
@@ -445,4 +474,8 @@ img.logo:hover,img.logo:focus{
     background-color: var(--primary-color);
     color: white;
     font-weight: bold;
+}
+
+.product-cart{
+    margin-bottom: 30px;
 }
