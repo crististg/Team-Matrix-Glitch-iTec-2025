@@ -15,6 +15,8 @@
 
 body{
     color:white;
+    background-image:url("/public/imagini/glitchy.png") !important;
+    background-repeat:repeat;
 }
 
 main {
@@ -128,6 +130,40 @@ main {
   margin-top: 240px;
   padding: 0 40px;
   font-family: var(--font-fam-text);
-  text-align: center;
+  text-align: left;
   color: var(--text-color);
+}
+
+.flex-left{
+  text-indent:20px;
+  display:flex;
+  justify-content:left;
+  align-items:center;
+}
+
+.flex-left h3{
+  font-family: var(--font-fam-text); 
+  font-size: 42px;
+  background: linear-gradient(90deg, var(--title-color), var(--hover-color), var(--title-color));
+  text-shadow: 2px 2px 0 var(--title-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; 
+  text-fill-color: transparent;
+  text-align: center;
+  letter-spacing: 2px;
+  margin: 40px 0 20px;
+  animation: gradient-fade 1s ease-in-out infinite;
+}
+
+@keyframes gradient-fade {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
 }

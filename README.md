@@ -1,29 +1,43 @@
-# Team-Matrix-Glitch-iTec-2025
+# 🎸 Team Matrix Glitch — iTEC2025 Submission
 
-# EN: GlitchStyle: The Ultimate Fashion & Music E-Shop
+# ✨ GlitchStyle: The Ultimate Fashion & Music E-Shop
 
-Welcome to **GlitchStyle**, an innovative e-commerce platform designed for iTEC2025. This app seamlessly blends the worlds of fashion and music, offering users a unique shopping experience.
+Welcome to **GlitchStyle**, an alternative rock-inspired e-commerce platform where **style meets sound**. Created for **iTEC2025**, GlitchStyle is a digital space born from the energy of underground music, DIY fashion, and creative rebellion.
 
-## Features
+## 🖤 About GlitchStyle
 
-- **Fashion Catalog**: Browse and shop the latest trends in clothing and accessories.
-- **Music Marketplace**: Discover and purchase music from emerging and established artists.
-- **Personalized Recommendations**: Get tailored suggestions based on your style and music preferences.
-- **Responsive Design**: Enjoy a seamless experience across all devices.
+**GlitchStyle** is more than just a store—it's a cultural hub. We fuse **original streetwear fashion** with a built-in **alt-rock music player**, offering fans a way to dress the part while listening to the soundtrack of their scene.
 
-## Project Structure: TO BE CONTINUED
+Whether you’re shopping for custom-designed tees, baggy jeans, or sneakers—or vibing to new rock bands—this is your place.
 
+---
 
+## 🚀 Core Features
 
-# RO: GlitchStyle: Magazinul Online de Modă și Muzică
+- 🎵 **Full Music Player**  
+  Stream a curated selection of **alternative rock tracks** directly on the site. Loop it, shuffle it, vibe out.
 
-Bine ați venit la **GlitchStyle**, o platformă inovatoare de e-commerce creată pentru iTEC2025. Această aplicație îmbină perfect lumea modei cu cea a muzicii, oferind utilizatorilor o experiență unică de cumpărături.
+- 🛒 **Fully Functional Shopping Cart**  
+  Seamlessly browse, add to cart, and check out your favorite gear—fast and smooth.
 
-## Funcționalități
+- 🧢 **Exclusive GlitchStyle Merch**  
+  Shop **original clothing** from our own brand: gritty, bold, and built for the alt-rock scene. Tees, baggy jeans, skate-style kicks, and more.
 
-- **Catalog de Modă**: Răsfoiți și cumpărați cele mai noi tendințe în materie de îmbrăcăminte și accesorii.
-- **Piață de Muzică**: Descoperiți și achiziționați muzică de la artiști emergenți și consacrați.
-- **Recomandări Personalizate**: Primiți sugestii adaptate stilului și preferințelor muzicale.
-- **Design Responsiv**: Bucurați-vă de o experiență fluidă pe toate dispozitivele.
+- 🤝 **Collaboration Page**  
+  Browse merch drops from **partner alt-rock bands** and independent artists. Support the underground.
 
-## Structura Proiectului: VA CONTINUA
+- 📱 **Responsive Design**  
+  Fully optimized for mobile, tablet, and desktop—shop and stream anywhere.
+
+---
+
+## 🛠️ Project Structure
+
+```bash
+/
+├── client/             # Frontend (React + Tailwind)
+├── server/             # Backend (Node.js + Express)
+├── music/              # Music player and track data
+├── store/              # Cart logic and product listings
+├── collabs/            # Band collab content
+└── README.md           # This file
