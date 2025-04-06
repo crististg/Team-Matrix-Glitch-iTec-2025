@@ -127,7 +127,7 @@ main {
 }
 
 .content-section {
-  margin-top: 40px;
+  margin-top: 22px;
   padding: 0 40px;
   font-family: var(--font-fam-text);
   text-align: left;
@@ -236,4 +236,44 @@ main {
 .stack-img.bottom {
   z-index: 1;
   transform: translate(80px, 60px) rotate(-8deg);
+}
+
+/* Flexbox layout for .our-roots, keeping text and image side by side */
+.our-roots {
+  display: flex;
+  flex-direction: row;  /* Align the image and text side by side */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center;     /* Align the items vertically in the center */
+  background-color: rgba(73, 71, 89, 0.6);
+  padding: 40px 0;
+  gap: -20px;
+}
+
+.our-roots .verticaltext {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 40vw;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.our-roots .image-stack {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  cursor: pointer;
+  border: 5px solid #fff;
+  border-radius: 10px;   
+  padding: 10px;       
+}
+
+.our-roots .image-stack img {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
