@@ -67,12 +67,40 @@
 
     <section class="content-section">
             <div class="flex-left"><h3>Who we are</h3></div>
-            <div class="flex-left"><p>GlitchStyle isn’t just a store — it’s a movement...</p></div>
+            <div class="flex-left"><p id="firstparagraph">GlitchStyle isn’t just a store — it’s a movement. Born out of a love for alternative rock, subcultures, 
+                and the gritty beauty of rebellion, we fuse music, fashion, and street culture into every piece we create.</p></div>
+            <div class="flex-left"><p>Founded in 2025 by <b>Matrix Glitch</b>, GlitchStyle represents the soundtrack to your wardrobe — raw, loud, 
+                and unapologetically different.</p></div>
+
+    </section>
+
+    <section class="our-vibe">
+        <div class="image-stack" id="imageStack">
+            <img src="/public/imagini/produse/spines-shoe.png" class="stack-img top">
+            <img src="/public/imagini/produse/beanie.png" class="stack-img middle">
+            <img src="/public/imagini/produse/beatles-tshirt.png" class="stack-img bottom">
+          </div>          
+        <div class="verticaltext"><div class="flex-left" id="second"><h3>Our Vibe</h3></div>
+        <div class="flex-left"><p>Think oversized tees, worn-in baggy jeans, and skate shoes that’ve seen a few too many late nights, chasing 
+            music through back alley gigs and underground venues. GlitchStyle isn’t just a look — it’s a lifestyle carved out in distortion, 
+            rebellion, and raw authenticity.</p></div>
+            
+        <div class="flex-left"><p>Every piece we drop is more than fabric and ink — it’s a reflection of the underground spirit. Inspired by
+            the chaos of sound, the grit of street art, and the unfiltered energy of the scene, our designs speak to those who live loud and love 
+            louder. From ripped edges to bold prints, nothing is polished — and that’s the point.</p></div>
+            
+        <div class="flex-left"><p>Whether you spent your youth diving into mosh pits or you’re just now falling in love with the
+            imperfect beauty of a fuzzed-out guitar riff, GlitchStyle welcomes you. We’re here for the late-night creatives, the 
+            street-styled punks, the vinyl collectors, and the rebels who refuse to blend in.
+
+            GlitchStyle is your canvas — wear your noise.
+            
+            </p></div></div>
     </section>
 
 
     </main>
-    
+    </div>
     <iframe id="music-player-frame" src="/code/html/music-player.html"></iframe>
     <button class="reopen-btn" style="display: none;">🎵</button>
 
@@ -102,6 +130,21 @@
                 reopenButton.style.display = 'none';
             });
         });
+
+        const stack = document.getElementById("imageStack");
+
+        stack.addEventListener("click", () => {
+        const images = Array.from(stack.querySelectorAll(".stack-img"));
+
+        // Rotate the classes
+        images[0].classList.replace("top", "bottom");
+        images[1].classList.replace("middle", "top");
+        images[2].classList.replace("bottom", "middle");
+
+        // Reorder DOM to match visual stack
+        stack.appendChild(images[0]);
+        });
+
     </script>
     <script src="/code/javascript/theme.js"></script>
 </body>
