@@ -68,6 +68,38 @@ app.get('/products', (req, res) => {
     });
 });
 
+db_products.run('ALTER TABLE products ADD COLUMN image2 TEXT', (err) => {
+    if (err) {
+        if (err.message.includes('duplicate column name')) {
+            console.log('Column "image2" already exists.');
+        } else {
+            console.error('Error adding column "image2":', err.message);
+        }
+    } else {
+        console.log('Column "image2" added successfully.');
+    }
+});
+
+app.post('/products', (req, res) => {
+    const { name, description, price, image, image2 } = req.body;
+
+    console.log('Received product:', { name, description, price, image, image2 });
+
+    db_products.run(
+        'INSERT INTO products (name, description, price, image, image2) VALUES (?, ?, ?, ?, ?)',
+        [name, description, price, image, image2],
+        function (err) {
+            if (err) {
+                console.error('Error inserting product:', err.message); // Afișează erorile
+                res.status(500).json({ error: err.message });
+            } else {
+                console.log('Product inserted with ID:', this.lastID); // Confirmă inserarea
+                res.json({ id: this.lastID });
+            }
+        }
+    );
+});
+
 app.get('/products/:id', (req, res) => {
     const productId = req.params.id;
 
@@ -78,19 +110,19 @@ app.get('/products/:id', (req, res) => {
         } else if (!row) {
             res.status(404).json({ error: 'Product not found' });
         } else {
-            res.json(row);
+            res.json(row); // Returnează toate detaliile produsului, inclusiv cele două imagini
         }
     });
 });
 
 app.post('/products', (req, res) => {
-    const { name, description, price, image} = req.body;
+    const { name, description, price, image, image2 } = req.body;
 
-    console.log('Received product:', { name, description, price, image});
+    console.log('Received product:', { name, description, price, image, image2 });
 
     db_products.run(
-        'INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)',
-        [name, description, price, image],
+        'INSERT INTO products (name, description, price, image, image2) VALUES (?, ?, ?, ?, ?)',
+        [name, description, price, image, image2],
         function (err) {
             if (err) {
                 console.error('Error inserting product:', err.message); // Afișează erorile

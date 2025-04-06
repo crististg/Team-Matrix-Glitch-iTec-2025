@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.google.com/specimen/Nova+Round?query=round');
 
-:root {
+:root[data-theme='dark']{
     --special-color: #546274;
     --primary-color: #002147;
     --secondary-color: #0d1b2a;
@@ -9,6 +9,18 @@
     --title-color: #00fff7;
     --hover-color: #264062;
     --text-color: #FFF8F8;
+    --font-fam-branding: 'Rock Salt', cursive;
+    --font-fam-text: 'Nova Round', sans-serif;
+}
+
+:root{
+    --special-color: #ff0000;
+    --primary-color: #c02121;
+    --secondary-color: #8d3737;
+    --footer-color:#112233;
+    --title-color: #00fff7;
+    --hover-color: #264062;
+    --text-color: #000000;
     --font-fam-branding: 'Rock Salt', cursive;
     --font-fam-text: 'Nova Round', sans-serif;
 }
@@ -114,6 +126,29 @@ a {
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s ease;
+}
+
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#theme-toggle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
 }
 
 .shopping-cart{

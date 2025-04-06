@@ -23,36 +23,43 @@
             
             <label for="image">Image URL:</label>
             <input type="text" id="image" name="image"> 
+
+            <label for="image2">Image2 URL</label>
+            <input type="text" id="image2" name="image2">
             
             <button type="submit">Add Product</button>
         </form>
     </main>
     <script>
-        const form = document.getElementById('product-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const product = {
-                name: formData.get('name'),
-                description: formData.get('description'),
-                price: parseFloat(formData.get('price')),
-                image: formData.get('image'),
-            };
-        
-            console.log('Product to be sent:', product);
-        
-            fetch('http://localhost:3000/products', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(product)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Product added successfully!');
-                form.reset();
-            })
-            .catch(error => console.error('Error:', error));
+        document.getElementById('product-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const description = document.getElementById('description').value;
+    const price = parseFloat(document.getElementById('price').value);
+    const image = document.getElementById('image').value;
+    const image2 = document.getElementById('image2').value;
+
+    fetch('http://localhost:3000/products', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, description, price, image, image2 })
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Failed to add product');
+            }
+            return response.json();
+        })
+        .then((data) => {
+            alert('Product added successfully!');
+            document.getElementById('product-form').reset();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('An error occurred while adding the product.');
         });
+});
     </script>
 </body>
 </html>

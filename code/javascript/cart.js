@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     const productDiv = document.createElement('div');
                     productDiv.classList.add('product');
                     productDiv.innerHTML = `
+                        <div id="card">
                         <h3>${product.name}</h3>
                         <p>${product.description}</p>
                         <p>Price: $${product.price.toFixed(2)}</p>
                         <img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto;" />
                         <button class="remove-from-cart" data-index="${index}">Remove</button>
+                        </div>
                     `;
                     cartContainer.appendChild(productDiv);
 
