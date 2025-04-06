@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then((response) => response.json())
                 .then((product) => {
                     const productDiv = document.createElement('div');
-                    productDiv.classList.add('product');
+                    productDiv.classList.add('product-cart');
                     productDiv.innerHTML = `
-                        <div id="card">
+                        <div id="card" style="width:800px; height:400px">
                         <h3>${product.name}</h3>
                         <p>${product.description}</p>
                         <p>Price: $${product.price.toFixed(2)}</p>
-                        <img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto;" />
+                        <img src="${product.image}" alt="${product.name}" style="width: 100px; height: auto; left:0px" />
                         <button class="remove-from-cart" data-index="${index}">Remove</button>
                         </div>
                     `;
