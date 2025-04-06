@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #002147;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+#collaborations-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creează un grid cu 4 coloane */
+    gap: 20px; /* Spațiu între carduri */
+    padding: 20px;
+}
+
+.collaboration-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.collaboration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.collaboration-images {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.collaboration-image {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.collaboration-card h3 {
+    font-size: 1.2em;
+    margin: 8px 0;
+}
+
+.collaboration-card p {
+    font-size: 0.9em;
+    color: #555;
+}
